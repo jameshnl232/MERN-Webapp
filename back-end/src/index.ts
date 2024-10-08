@@ -20,7 +20,7 @@ const password = process.env.DB_PASSWORD
 //adding cors middleware
 const corsOptions = {
   methods: 'GET, POST, PUT, DELETE',
-  origin: 'https://mern-webapp-hip3.onrender.com',
+  origin: 'https://mern-webapp-hip3.onrender.com, https://mern-webapp-my06n5u3c-jameshnl232s-projects.vercel.app',
   allowHeaders: 'Content-Type, Authorization'
 }
 
