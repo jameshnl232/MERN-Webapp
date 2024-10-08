@@ -51,7 +51,7 @@ export default function CreatePost({}: Props) {
 
     try {
       setLoading(true)
-      const response = await fetch('/api/post/create', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

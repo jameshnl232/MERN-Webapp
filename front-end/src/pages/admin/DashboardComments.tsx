@@ -28,7 +28,7 @@ export default function DashboardComments({ className }: Props) {
     const fetchComments = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`/api/comment/comments`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comment/comments`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ export default function DashboardComments({ className }: Props) {
     }
 
     try {
-      const response = await fetch(`/api/comment/delete/${commentToDelete}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comment/delete/${commentToDelete}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export default function DashboardComments({ className }: Props) {
   const handleShowMore = async () => {
     const startIndex = comments.length
     try {
-      const response = await fetch(`/api/comment/comments?startIndex=${startIndex}`)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comment/comments?startIndex=${startIndex}`)
       const data = await response.json()
       if (response.ok) {
         setComments([...comments, ...data.comments])

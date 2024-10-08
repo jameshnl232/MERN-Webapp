@@ -28,7 +28,7 @@ export default function PostPage({}: Props) {
     const fetchPost = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`/api/post/posts?slug=${params.slug}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/posts?slug=${params.slug}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ export default function PostPage({}: Props) {
   useEffect(() => {
     const fetchRecentPosts = async () => {
       try {
-        const res = await fetch(`/api/post/posts?limit=3`)
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/post/posts?limit=3`)
         const data = await res.json()
         if (res.ok) {
           setRecentPosts(data.posts)

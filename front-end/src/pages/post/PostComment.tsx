@@ -26,7 +26,7 @@ export default function PostComment({ comment, onDelete, onLike, onEdit, user }:
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`/api/comment/update/${comment._id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comment/update/${comment._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

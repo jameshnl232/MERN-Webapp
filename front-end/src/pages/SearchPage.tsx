@@ -38,7 +38,7 @@ export default function SearchPage({}: Props) {
         try {
           setLoading(true)
           const response = await fetch(
-            `/api/post/posts?searchTerm=${searchQuery}&sort=${sortQuery}&category=${categoryQuery}`,
+            `${import.meta.env.VITE_API_URL}/api/post/posts?searchTerm=${searchQuery}&sort=${sortQuery}&category=${categoryQuery}`,
             {
               method: 'GET',
               headers: {
@@ -80,7 +80,7 @@ export default function SearchPage({}: Props) {
     const startIndex = posts.length
     try {
       const response = await fetch(
-        `/api/post/posts?searchTerm=${formData.search}&sort=${formData.sort}&category=${formData.category}&startIndex=${startIndex}`,
+        `${import.meta.env.VITE_API_URL}/api/post/posts?searchTerm=${formData.search}&sort=${formData.sort}&category=${formData.category}&startIndex=${startIndex}`,
         {
           method: 'GET',
           headers: {

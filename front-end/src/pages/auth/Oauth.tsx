@@ -19,7 +19,7 @@ export default function Oauth({}: Props) {
     try {
       const resultsFromGoogle = await signInWithPopup(auth, provider)
 
-      const response = await fetch('/api/auth/google', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/google`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

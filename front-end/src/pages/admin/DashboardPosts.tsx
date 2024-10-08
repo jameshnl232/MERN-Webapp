@@ -26,7 +26,7 @@ export default function DashboardPosts({ className }: Props) {
     const fetchPosts = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`/api/post/posts?userId=${userId}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/posts?userId=${userId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ export default function DashboardPosts({ className }: Props) {
 
   const handleDeletePost = async () => {
     try {
-      const response = await fetch(`/api/post/delete/${postToDelete}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/delete/${postToDelete}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -77,12 +77,15 @@ export default function DashboardPosts({ className }: Props) {
     const fetchmorePosts = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`/api/post/posts?userId=${userId}&startIndex=${startIndex}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/post/posts?userId=${userId}&startIndex=${startIndex}`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
           }
-        })
+        )
         const data = await response.json()
         if (response.ok) {
           setPosts((prevPosts) => [...prevPosts, ...data.posts])

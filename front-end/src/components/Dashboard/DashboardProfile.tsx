@@ -16,6 +16,7 @@ type Props = {
   className?: string
 }
 
+
 export default function DashboardProfile({ className }: Props) {
   const user = useAppSelector((state) => state.auth.user)
   const userId = useAppSelector((state) => state.auth.userId)
@@ -74,7 +75,7 @@ export default function DashboardProfile({ className }: Props) {
 
     try {
       setLoading(true)
-      const response = await fetch(`/api/user/${userId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -151,7 +152,7 @@ export default function DashboardProfile({ className }: Props) {
 
   const handleDeleteAccount = async () => {
     try {
-      const response = await fetch(`/api/user/${userId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user/${userId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`

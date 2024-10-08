@@ -26,7 +26,7 @@ export default function DashboardComp({ className }: Props) {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch('/api/user/users?limit=5', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/user/users?limit=5`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export default function DashboardComp({ className }: Props) {
     }
     const fetchPosts = async () => {
       try {
-        const res = await fetch('/api/post/posts?limit=5')
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/post/posts?limit=5`)
         const data = await res.json()
         if (res.ok) {
           setPosts(data.posts)
@@ -58,7 +58,7 @@ export default function DashboardComp({ className }: Props) {
     }
     const fetchComments = async () => {
       try {
-        const res = await fetch('/api/comment/comments?limit=5')
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/comment/comments?limit=5`)
         const data = await res.json()
         if (res.ok) {
           setComments(data.comments)

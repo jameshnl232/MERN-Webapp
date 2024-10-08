@@ -41,7 +41,7 @@ export default function CommentSection({ postId }: Props) {
 
     try {
       setLoading(true)
-      const response = await fetch('/api/comment/create', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comment/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export default function CommentSection({ postId }: Props) {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await fetch(`/api/comment/comments?postId=${postId}&limit=5`)
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comment/comments?postId=${postId}&limit=5`)
         const data = await response.json()
         if (response.ok) {
           setComments(data.comments)
@@ -89,7 +89,9 @@ export default function CommentSection({ postId }: Props) {
   const handleShowMore = async () => {
     const startIndex = comments.length
     try {
-      const response = await fetch(`/api/comment/comments?postId=${postId}&startIndex=${startIndex}`)
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/comment/comments?postId=${postId}&startIndex=${startIndex}`
+      )
       const data = await response.json()
       if (response.ok) {
         setComments([...comments, ...data.comments])
@@ -113,7 +115,7 @@ export default function CommentSection({ postId }: Props) {
     }
 
     try {
-      const response = await fetch(`/api/comment/likeComment/${comment._id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comment/likeComment/${comment._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -146,7 +148,7 @@ export default function CommentSection({ postId }: Props) {
     }
 
     try {
-      const response = await fetch(`/api/comment/delete/${commentToDelete}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comment/delete/${commentToDelete}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

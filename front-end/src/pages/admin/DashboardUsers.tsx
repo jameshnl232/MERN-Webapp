@@ -24,7 +24,7 @@ export default function DashboardUsers({ className }: Props) {
     const fetchPosts = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`/api/user/users`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user/users`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export default function DashboardUsers({ className }: Props) {
     const fetchMoreUsers = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`/api/user/users?&startIndex=${startIndex}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user/users?&startIndex=${startIndex}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export default function DashboardUsers({ className }: Props) {
   const handleDeleteUser = async () => {
     //delete post
     try {
-      const response = await fetch(`/api/user/delete/${userToDelete}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user/delete/${userToDelete}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

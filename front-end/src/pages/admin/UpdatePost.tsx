@@ -47,7 +47,7 @@ export default function UpdatePost({}: Props) {
   useEffect(() => {
     try {
       setLoading(true)
-      fetch(`/api/post/posts?postId=${postId}`, {
+      fetch(`${import.meta.env.VITE_API_URL}/api/post/posts?postId=${postId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ export default function UpdatePost({}: Props) {
 
     try {
       setLoading(true)
-      const response = await fetch(`/api/post/update/${postId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/post/update/${postId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
