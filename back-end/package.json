@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "npx nodemon",
-    "build": " ./dist && tsc && tsc-alias && npm install && cd front-end npm install && cd front-end npm run build ",
+    "build": "  tsc && tsc-alias && npm install && cd front-end npm install && cd front-end npm run build ",
     "start": "tsx dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
