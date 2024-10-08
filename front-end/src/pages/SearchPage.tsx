@@ -1,6 +1,6 @@
 import { Button, Label, Select, TextInput } from 'flowbite-react'
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Post } from '../types/type'
 import PostCard from '../components/PostCard'
 import { useNavigate } from 'react-router-dom'
@@ -62,7 +62,6 @@ export default function SearchPage({}: Props) {
 
       fetchPosts()
     }
-    
   }, [location.search])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -104,8 +103,6 @@ export default function SearchPage({}: Props) {
   if (loading) {
     return <p className='min-h-screen text-center'>Loading...</p>
   }
-
- 
 
   if (error.length > 0) {
     return <p className='min-h-screen text-center'>{error[0]}</p>

@@ -8,7 +8,7 @@ type BoundedProps = {
 
 export const Bounded = ({ as: Comp = 'section', className, children, ...restProps }: BoundedProps) => {
   return (
-    <Comp className={clsx( className)} {...restProps}>
+    <Comp className={clsx(className)} {...restProps}>
       <div className='mx-auto flex w-full max-w-7xl flex-col items-center'>{children}</div>
     </Comp>
   )

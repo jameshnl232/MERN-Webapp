@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useLocation,  } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import DashboardSidebar from '../../components/Dashboard/DashboardSidebar'
 import DashboardProfile from '../../components/Dashboard/DashboardProfile'
 import DashboardPosts from './DashboardPosts'
 import DashboardUsers from './DashboardUsers'
 import DashBoardStatistics from './DashBoardStatistics'
-import {  useAppSelector } from '../../redux/store'
+import { useAppSelector } from '../../redux/store'
 
 import useTokenExpiry from '../../hooks/useTokenExpiry '
 import DashboardComments from './DashboardComments'
@@ -19,7 +19,7 @@ export default function Dashboard({}: Props) {
   const user = useAppSelector((state) => state.auth.user)
 
   //log out if token expires
- useTokenExpiry(token)
+  useTokenExpiry(token)
 
   useEffect(() => {
     const tabFromUrl = new URLSearchParams(location.search).get('tab')
@@ -50,8 +50,6 @@ export default function Dashboard({}: Props) {
 
       {/* Dashboard */}
       {user && user.isAdmin && tab === 'dashboard' && <DashBoardStatistics className='min-h-full w-full' />}
-
-
     </div>
   )
 }

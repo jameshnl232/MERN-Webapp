@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { useAppSelector } from '../../redux/store'
 import { Comment, Post, User } from '../../types/type'
 
-
 type Props = {
   className?: string
 }
@@ -24,15 +23,14 @@ export default function DashboardComp({ className }: Props) {
 
   const token = useAppSelector((state) => state.auth.token)
 
-
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const res = await fetch('/api/user/users?limit=5', {
-          method: "GET",
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            Authorization: `Bearer ${token}`
           }
         })
         const data = await res.json()
@@ -78,7 +76,7 @@ export default function DashboardComp({ className }: Props) {
     }
   }, [currentUser])
   return (
-    <div className={ className + " " + 'p-3 md:mx-auto'}>
+    <div className={className + ' ' + 'p-3 md:mx-auto'}>
       <div className='flex flex-wrap justify-center gap-4'>
         <div className='flex w-full flex-col gap-4 rounded-md p-3 shadow-md dark:bg-slate-800 md:w-72'>
           <div className='flex justify-between'>

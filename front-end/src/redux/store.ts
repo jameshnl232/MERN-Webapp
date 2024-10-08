@@ -6,9 +6,8 @@ import authSclice from './features/auth/auth.slices'
 import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-
 const rootReducer = combineReducers({
-  auth: authSclice,
+  auth: authSclice
 })
 
 const persistConfig = {

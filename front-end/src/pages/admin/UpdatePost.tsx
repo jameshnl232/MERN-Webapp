@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import {  useAppSelector } from '../../redux/store'
+import { useAppSelector } from '../../redux/store'
 import { Alert, Button, FileInput, Spinner, TextInput } from 'flowbite-react'
 import ReactQuill from 'react-quill-new'
 import 'react-quill/dist/quill.snow.css'
@@ -33,9 +33,9 @@ export default function UpdatePost({}: Props) {
   })
 
   const [profileImage, setProfileImage] = useState<File | null>(null)
-  const [imageUrl, setImageUrl] = useState<string | null>(null)
+  const [_imageUrl, setImageUrl] = useState<string | null>(null)
   const [imageUploadError, setImageUploadError] = useState<string | null>(null)
-  const [imageFileUploading, setImageFileUploading] = useState<boolean>(false)
+  const [_imageFileUploading, setImageFileUploading] = useState<boolean>(false)
 
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<string[]>([])
@@ -73,7 +73,7 @@ export default function UpdatePost({}: Props) {
     } catch (err) {
       setErrors(['Could not fetch post!'])
     }
-  }, [postId])
+  }, [postId, token])
 
   // Function to handle image upload
   const handleUploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -106,10 +106,8 @@ export default function UpdatePost({}: Props) {
       if (uploadTask) {
         uploadTask.on(
           'state_changed',
-          (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          },
-          (error) => {
+          (_snapshot) => {},
+          (_error) => {
             setImageUrl(null)
             setProfileImage(null)
             setImageUploadError("Couldn't upload image (file must be of type image and less than 2MB")

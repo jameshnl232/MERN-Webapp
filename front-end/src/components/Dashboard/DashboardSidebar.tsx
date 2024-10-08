@@ -6,7 +6,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { HiUsers } from 'react-icons/hi'
 
-
 import { useAppDispatch, useAppSelector } from '../../redux/store'
 import { logoutProfile } from '../../redux/features/auth/auth.slices'
 import showToast from '../../utils/toast'

@@ -18,6 +18,7 @@
     "@react-three/fiber": "^8.17.7",
     "@reduxjs/toolkit": "^2.2.7",
     "@types/three": "^0.168.0",
+    "back-end": "file:../back-end",
     "clsx": "^2.1.1",
     "firebase": "^10.13.2",
     "flowbite-react": "^0.10.1",

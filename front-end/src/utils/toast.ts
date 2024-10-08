@@ -12,7 +12,7 @@ const showToast = (message: string, type: ToastType) => {
     progress: undefined,
     theme: 'light'
   } as {
-    position: 'top-center',
+    position: 'top-center'
     autoClose: number
     hideProgressBar: boolean
     closeOnClick: boolean

@@ -12,8 +12,6 @@ export default function PostPage({}: Props) {
   const [post, setPost] = useState<BlogPost | null>(null)
   const [recentPosts, setRecentPosts] = useState<Post[] | null>(null)
 
-
-
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string[]>([])
 
@@ -25,7 +23,6 @@ export default function PostPage({}: Props) {
     postTitle = post.title
     postImage = post.image
   }
-
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -82,11 +79,9 @@ export default function PostPage({}: Props) {
     )
   }
 
-  if(!post){
+  if (!post) {
     return
   }
-
-
 
   return (
     <div className='mx-auto flex min-h-screen max-w-6xl flex-col p-3 dark:text-gray-100'>

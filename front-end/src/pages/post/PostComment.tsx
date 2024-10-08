@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { Comment, User } from '../../types/type'
 import moment from 'moment'
 import { FaThumbsUp } from 'react-icons/fa'
@@ -38,12 +37,11 @@ export default function PostComment({ comment, onDelete, onLike, onEdit, user }:
         })
       })
 
-      if(response.ok){
+      if (response.ok) {
         const data = await response.json()
         onEdit(comment, data.comment.content)
         setEdit(false)
       }
-
     } catch (error) {
       console.log(error)
       setEdit(false)

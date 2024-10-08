@@ -128,7 +128,7 @@ export default function DashboardProfile({ className }: Props) {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           setImageUploadProgress(+progress.toFixed(0))
         },
-        (error) => {
+        (_error) => {
           setImageUploadError("Couldn't upload image (file must be of type image and less than 2MB")
           setImageUploadProgress(null)
           setLocalImageUrl(null)
@@ -261,15 +261,13 @@ export default function DashboardProfile({ className }: Props) {
               'Save changes'
             )}
           </Button>
-          {
-            user?.isAdmin && (
-              <Link to='/create-post' className='min-w-[80%]'>
-                <Button type='button' className='w-full bg-gradient-to-r from-sky-600 to-orange-600' outline  >
-                  Create Post 
-                </Button>
-              </Link>
-            )
-          }
+          {user?.isAdmin && (
+            <Link to='/create-post' className='min-w-[80%]'>
+              <Button type='button' className='w-full bg-gradient-to-r from-sky-600 to-orange-600' outline>
+                Create Post
+              </Button>
+            </Link>
+          )}
 
           <div className='flex min-w-[80%] justify-between text-red-600'>
             <span className='cursor-pointer' onClick={() => setShowModal(true)}>

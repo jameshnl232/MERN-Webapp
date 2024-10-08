@@ -19,7 +19,7 @@ export type Post = {
   updatedAt: string
   slug: string
   author: User
-  category: string 
+  category: string
 }
 
 export type Comment = {
@@ -27,7 +27,7 @@ export type Comment = {
   content: string
   postId: Post
   userId: User
-  likes: any[]
+  likes: unknown[]
   numberOfLikes: number
   createdAt: string
   updatedAt: string

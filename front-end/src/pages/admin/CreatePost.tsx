@@ -2,7 +2,7 @@ import { Alert, Button, FileInput, Spinner, TextInput } from 'flowbite-react'
 import ReactQuill from 'react-quill-new'
 import 'react-quill/dist/quill.snow.css'
 
-import {  useState } from 'react'
+import { useState } from 'react'
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage'
 import { app } from '../../firebase'
 import showToast from '../../utils/toast'
@@ -30,7 +30,7 @@ export default function CreatePost({}: Props) {
   const token = useAppSelector((state) => state.auth.token)
 
   const [profileImage, setProfileImage] = useState<File | null>(null)
-  const [imageUrl, setImageUrl] = useState<string | null>(null)
+  const [_imageUrl, setImageUrl] = useState<string | null>(null)
   const [imageUploadError, setImageUploadError] = useState<string | null>(null)
   const [imageFileUploading, setImageFileUploading] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
@@ -114,10 +114,8 @@ export default function CreatePost({}: Props) {
       if (uploadTask) {
         uploadTask.on(
           'state_changed',
-          (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          },
-          (error) => {
+          (_snapshot) => {},
+          (_error) => {
             setImageUrl(null)
             setProfileImage(null)
             setImageUploadError("Couldn't upload image (file must be of type image and less than 2MB")
@@ -177,7 +175,7 @@ export default function CreatePost({}: Props) {
 
         <ReactQuill
           theme='snow'
-          className='h-full dark:text-gray-100 overflow-y-auto'
+          className='h-full overflow-y-auto dark:text-gray-100'
           placeholder='Write a blog'
           onChange={(value) => setFormData({ ...formData, content: value })}
         />
@@ -201,4 +199,3 @@ export default function CreatePost({}: Props) {
     </div>
   )
 }
-

@@ -15,7 +15,6 @@ export default function CommentSection({ postId }: Props) {
   const user = useAppSelector<User | null>((state) => state.auth.user)
   const token = useAppSelector<string | null>((state) => state.auth.token)
   const [content, setContent] = useState<string>('')
-  const [comment, setComment] = useState<Comment | null>(null)
   const [comments, setComments] = useState<Comment[]>([])
   const [errors, setErrors] = useState<string[]>([])
   const [loading, setLoading] = useState<boolean>(false)
@@ -58,7 +57,6 @@ export default function CommentSection({ postId }: Props) {
       const data = await response.json()
 
       if (response.ok) {
-        setComment(data.comment)
         setComments([...comments, data.comment])
         setContent('')
         setLoading(false)
@@ -171,6 +169,10 @@ export default function CommentSection({ postId }: Props) {
     setComments(updatedComments)
   }
 
+  if (loading) {
+    return <p className='mt-20 text-center'>Loading...</p>
+  }
+
   return (
     <div className='mx-auto mt-20 w-full max-w-2xl p-3'>
       {user ? (
@@ -220,7 +222,7 @@ export default function CommentSection({ postId }: Props) {
                   }}
                 />
               ))}
-              {showMore  && (
+              {showMore && (
                 <div className='mt-5 flex justify-center'>
                   <Button outline onClick={handleShowMore}>
                     Show more

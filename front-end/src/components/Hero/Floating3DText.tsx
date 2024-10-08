@@ -37,7 +37,6 @@ export default function Floating3DText({
             curveSegments={15}
             bevelEnabled={true}
             bevelThickness={0.05}
-            
             size={size}
             rotation={[-0.15, 0, 0]}
           >

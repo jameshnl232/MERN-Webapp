@@ -22,7 +22,6 @@ export default function DashboardPosts({ className }: Props) {
 
   const [showModal, setShowModal] = useState(false)
 
-
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -49,7 +48,7 @@ export default function DashboardPosts({ className }: Props) {
     if (user && user.isAdmin) {
       fetchPosts()
     }
-  }, [userId])
+  }, [userId, user])
 
   const handleDeletePost = async () => {
     try {

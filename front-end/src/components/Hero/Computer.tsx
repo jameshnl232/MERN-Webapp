@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Center, Float, Sparkles, useGLTF } from '@react-three/drei'
 import { forwardRef } from 'react'
 import * as THREE from 'three'

@@ -1,12 +1,10 @@
 import { Canvas } from '@react-three/fiber'
-import { Loader, View } from '@react-three/drei'
+import {  View } from '@react-three/drei'
 import { Suspense } from 'react'
 
 type Props = {}
 
 export default function ViewCanvas({}: Props) {
-
-
   return (
     <div id='canvas-container'>
       <Canvas

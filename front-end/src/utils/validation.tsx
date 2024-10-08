@@ -1,4 +1,3 @@
-
 export const validateSignupForm = ({
   password,
   email,
@@ -75,7 +74,6 @@ export const validateUpdateForm = ({
   } else if (!email || email.trim() === '') {
     errors.push('Please enter an email')
   }
-
 
   return errors
 }

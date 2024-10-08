@@ -47,7 +47,7 @@ export default function DashboardUsers({ className }: Props) {
     if (user && user.isAdmin) {
       fetchPosts()
     }
-  }, [user])
+  }, [user, token])
 
   const handleShowMore = () => {
     //fetch more posts

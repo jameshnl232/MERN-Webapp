@@ -3,8 +3,7 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
-import eslintPluginPrettier from "eslint-plugin-prettier";
-
+import eslintPluginPrettier from 'eslint-plugin-prettier'
 
 export default tseslint.config(
   { ignores: ['dist', 'vite.config.ts'] },
@@ -21,8 +20,25 @@ export default tseslint.config(
       prettier: eslintPluginPrettier
     },
     rules: {
-      allowObjectTypes: "always",
+      /* 'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-empty-object-type': [
+        'off',
+        {
+          allowWithName: 'Props$',
+          allowObjectTypes: 'always'
+
+        }
+      ], */
+      '@typescript-eslint/no-empty-object-type': ['off'],
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': ['off'],
+
+      '@typescript-eslint/no-unused-vars': 'off',
+      'no-empty-pattern': ['off', { allowObjectPatternsAsParameters: false }],
+
       ...reactHooks.configs.recommended.rules,
+
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'prettier/prettier': [
         'warn',
@@ -35,7 +51,7 @@ export default tseslint.config(
           useTabs: false,
           singleQuote: true,
           printWidth: 120,
-          jsxSingleQuote: true,
+          jsxSingleQuote: true
         }
       ]
     }

@@ -10,8 +10,8 @@ type Props = {}
 
 export default function Signup({}: Props) {
   const navigate = useNavigate()
- const [loading, setLoading] = useState(false)
- const [errors, setErrors] = useState<string[]>([])
+  const [loading, setLoading] = useState(false)
+  const [errors, setErrors] = useState<string[]>([])
 
   const [formData, setFormData] = useState({ email: '', password: '', repeatPassword: '' })
   const username = formData.email.split('@')[0]
