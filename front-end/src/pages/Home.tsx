@@ -15,7 +15,7 @@ export default function Home() {
     const fetchPosts = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`https://back-end-delta-eight.vercel.app/api/post/posts`, {
+        const response = await fetch(`/api/post/posts`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
