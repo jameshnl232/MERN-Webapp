@@ -38,10 +38,15 @@ export default function Home() {
     <>
       <HeroSection />
       <div className='min-h-screen dark:text-gray-100'>
+        {_loading && (
+          <div className='flex min-h-screen items-center justify-center'>
+            <Spinner className='mr-2' size='md' />
+          </div>
+        )}
+
         <div className='mx-auto flex h-full min-h-screen w-full flex-wrap items-start justify-center gap-8 p-3 py-7'>
           {posts && posts.length > 0 && (
             <div className='flex flex-col justify-center gap-6'>
-              {_loading && <Spinner className='mr-2' size='md' />}
               <h2 className='text-center text-2xl font-bold md:text-4xl'>Recent Posts</h2>
               <div className='flex flex-wrap justify-center gap-4'>
                 {posts.map((post) => (
